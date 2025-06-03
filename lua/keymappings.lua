@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 -- Leader key
 vim.g.mapleader = " "
 
