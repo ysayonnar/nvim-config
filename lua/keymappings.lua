@@ -22,8 +22,8 @@ vim.keymap.set('n', '<leader>h', ':Alpha<CR>', { noremap = true, silent = false 
 
 -- Buffers
 vim.keymap.set('n', '<leader>c', function()
-    vim.cmd(':bd')
-    vim.cmd('w')
+    vim.cmd('bd')
+    vim.cmd('wa')
 end, { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>br', ':BufferLineCloseRight<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>bl', ':BufferLineCloseLeft<CR>', { noremap = true, silent = false })
