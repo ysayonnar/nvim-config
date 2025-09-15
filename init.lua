@@ -12,7 +12,7 @@ end)
 -- Bufferline settings
 vim.opt.termguicolors = true
 require('bufferline').setup({
-    highlights = require("catppuccin.groups.integrations.bufferline").get()
+    -- highlights = require("catppuccin.groups.integrations.bufferline").get()
 })
 
 -- Toggleterm
