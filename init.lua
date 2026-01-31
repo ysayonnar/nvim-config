@@ -6,15 +6,15 @@ require("keymappings") -- keymappings for all core and plugins
 
 
 require('kanagawa').setup({
-  transparent = true,
-  overrides = function(colors)
-    return {
-      LineNr = { bg = "none" },
-      CursorLineNr = { bg = "none" },
-      SignColumn = { bg = "none" },
-      FoldColumn = { bg = "none" },
-    }
-  end,
+    transparent = true,
+    overrides = function(colors)
+        return {
+            LineNr = { bg = "none" },
+            CursorLineNr = { bg = "none" },
+            SignColumn = { bg = "none" },
+            FoldColumn = { bg = "none" },
+        }
+    end,
 })
 
 -- Colorscheme setup
@@ -86,6 +86,20 @@ require('Comment').setup()
 
 -- Telescope
 require('telescope').setup({
-    'nvim-telescope/telescope.nvim', tag = 'v0.2.0',
-     dependencies = { 'nvim-lua/plenary.nvim' }
-    })
+    'nvim-telescope/telescope.nvim',
+    tag = 'v0.2.0',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+})
+
+
+vim.diagnostic.config({
+    update_in_insert = true, -- диагностика прямо во время набора
+    severity_sort = true,
+    virtual_text = {
+        spacing = 4,
+        prefix = "●",
+    },
+    float = {
+        border = "rounded",
+    },
+})
