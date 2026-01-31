@@ -47,9 +47,22 @@ return {
                 { name = "buffer" },
                 { name = "path" },
             }),
+            -- window = {
+            --     documentation = cmp.config.window.bordered(),
+            --     completion = cmp.config.window.bordered({
+            --         winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None'
+            --     }),
+            -- },
             window = {
-                completion = cmp.config.window.bordered(), -- рамка у окна автодополнения
-                documentation = cmp.config.window.bordered(), -- рамка у документации
+                completion = { -- rounded border; thin-style scrollbar
+                    border = 'rounded',
+                    scrollbar = '║',
+                },
+                documentation = { -- no border; native-style scrollbar
+                    border = nil,
+                    scrollbar = '',
+                    -- other options
+                },
             },
         })
     end,
