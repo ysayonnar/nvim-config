@@ -4,9 +4,13 @@ require("config.lazy") -- lazy plugins loader
 
 require("keymappings") -- keymappings for all core and plugins
 
+require('kanagawa').setup({
+    transparent = true,
+})
+
 -- Colorscheme setup
 vim.schedule(function()
-    vim.cmd.colorscheme("catppuccin")
+    vim.cmd.colorscheme("kanagawa")
 end)
 
 -- Bufferline settings
