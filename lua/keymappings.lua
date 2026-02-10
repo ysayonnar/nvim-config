@@ -31,6 +31,9 @@ vim.keymap.set('n', '<leader>bo', ':BufferLineCloseOthers<CR>', { noremap = true
 
 -- ToggleTerm
 -- vim.keymap.set('n', '<leader>tf', ':ToggleTerm direction=float<CR>', { noremap = true, silent = false })
+-- vim.keymap.set('t', '<esc>', ':ToggleTerm direction=float<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<cr>', { silent = true })
+vim.keymap.set('t', '<esc>', [[<C-\><C-n><cmd>ToggleTerm<cr>]], { silent = true })
 -- vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical size=40<CR>', { noremap = true, silent = false })
 -- vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal size=12<CR>', { noremap = true, silent = false })
 
@@ -41,4 +44,4 @@ vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>', { noremap = true, silent = tr
 vim.keymap.set('n', '<leader>la', ':Lspsaga code_action<CR>', opts)
 
 -- Telescope
-vim.keymap.set('n', '<leader>t', ':Telescope<CR>')
+vim.keymap.set('n', '<leader>tt', ':Telescope<CR>')

@@ -4,7 +4,6 @@ require("config.lazy") -- lazy plugins loader
 
 require("keymappings") -- keymappings for all core and plugins
 
-
 require('kanagawa').setup({
     transparent = true,
     overrides = function(colors)
@@ -17,9 +16,9 @@ require('kanagawa').setup({
     end,
 })
 
--- Colorscheme setup
+-- Colorscheme
 vim.schedule(function()
-    vim.cmd.colorscheme("catppuccin")
+    vim.cmd.colorscheme("kanagawa")
 end)
 
 -- Bufferline settings
@@ -32,6 +31,7 @@ require('bufferline').setup({
 require("toggleterm").setup {
     open_mapping = [[<F7>]],
     direction = 'float',
+    start_in_insert = true,
 }
 
 -- Lualine
