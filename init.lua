@@ -103,3 +103,11 @@ vim.diagnostic.config({
         border = "rounded",
     },
 })
+
+
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = "term://*",
+    callback = function()
+        vim.cmd("startinsert")
+    end,
+})
