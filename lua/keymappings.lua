@@ -17,8 +17,8 @@ vim.keymap.set('n', '|', ':vsp<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>E', ':Neotree filesystem reveal left toggle<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>e', ':Neotree float reveal toggle<CR>', { noremap = true, silent = false })
 
--- Alpha homepage
-vim.keymap.set('n', '<leader>h', ':Alpha<CR>', { noremap = true, silent = false })
+-- Dashboard
+vim.keymap.set('n', '<leader>h', '<cmd>Dashboard<cr>', { noremap = true, silent = true })
 
 -- Buffers
 vim.keymap.set('n', '<leader>c', function()
@@ -36,7 +36,7 @@ vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<cr>', { silen
 vim.keymap.set('t', '<esc>', [[<C-\><C-n><cmd>ToggleTerm<cr>]], { silent = true })
 vim.keymap.set('t', 'NN', [[<C-\><C-n>]], { silent = true })
 vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical size=60<CR>', { noremap = true, silent = false })
-vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal size=20<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal size=15<CR>', { noremap = true, silent = false })
 
 -- Mason / LSP
 vim.keymap.set('n', '<leader>M', ':Mason<CR>', { noremap = true, silent = false })
