@@ -111,3 +111,12 @@ vim.api.nvim_create_autocmd("TermOpen", {
         vim.cmd("startinsert")
     end,
 })
+
+-- Return to insert mode when navigating back into an open terminal window.
+vim.api.nvim_create_autocmd("WinEnter", {
+    callback = function()
+        if vim.bo.buftype == "terminal" then
+            vim.cmd.startinsert()
+        end
+    end,
+})

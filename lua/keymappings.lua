@@ -35,7 +35,8 @@ vim.keymap.set('n', '<leader>bo', ':BufferLineCloseOthers<CR>', { noremap = true
 vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm direction=float<cr>', { silent = true })
 vim.keymap.set('t', '<esc>', [[<C-\><C-n><cmd>ToggleTerm<cr>]], { silent = true })
 vim.keymap.set('t', 'NN', [[<C-\><C-n>]], { silent = true })
-vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical size=40<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical size=60<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal size=20<CR>', { noremap = true, silent = false })
 
 -- Mason / LSP
 vim.keymap.set('n', '<leader>M', ':Mason<CR>', { noremap = true, silent = false })
