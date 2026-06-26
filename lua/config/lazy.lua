@@ -28,8 +28,31 @@ require("lazy").setup({
         { import = "colorschemes" },
         { "rebelot/kanagawa.nvim", priority = 1000, config = true, opts = ... },
     },
-    -- Configure any other settings here. See the documentation for more details.
-    -- colorscheme that will be used when installing plugins.
-    -- automatically check for plugin updates
-    checker = { enabled = true },
+    checker = {
+        enabled = true,
+        notify = false,
+    },
+    change_detection = {
+        notify = false,
+    },
+})
+
+local function lazy_auto_update()
+    if require("lazy.status").has_updates() then
+        require("lazy").update({ show = false })
+    end
+end
+
+-- Apply updates silently after startup check (no popup).
+vim.api.nvim_create_autocmd("User", {
+    pattern = "VeryLazy",
+    once = true,
+    callback = function()
+        vim.defer_fn(lazy_auto_update, 500)
+    end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "LazyCheck",
+    callback = lazy_auto_update,
 })
