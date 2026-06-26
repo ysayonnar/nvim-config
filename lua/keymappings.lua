@@ -42,7 +42,7 @@ vim.keymap.set('n', '<leader>th', ':ToggleTerm direction=horizontal size=15<CR>'
 vim.keymap.set('n', '<leader>M', ':Mason<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true })
 vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>la', ':Lspsaga code_action<CR>', opts)
+vim.keymap.set('n', '<leader>la', ':Lspsaga code_action<CR>', { noremap = true, silent = true })
 
 -- Telescope
 vim.keymap.set('n', '<leader>tt', ':Telescope<CR>')

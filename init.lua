@@ -4,28 +4,8 @@ require("config.lazy") -- lazy plugins loader
 
 require("keymappings") -- keymappings for all core and plugins
 
-require('kanagawa').setup({
-    transparent = true,
-    overrides = function(colors)
-        return {
-            LineNr = { bg = "none" },
-            CursorLineNr = { bg = "none" },
-            SignColumn = { bg = "none" },
-            FoldColumn = { bg = "none" },
-        }
-    end,
-})
-
--- Colorscheme
-vim.schedule(function()
-    vim.cmd.colorscheme("kanagawa")
-end)
-
--- Bufferline settings
+-- Bufferline is configured in lua/plugins/bufferline.lua
 vim.opt.termguicolors = true
-require('bufferline').setup({
-    -- highlights = require("catppuccin.groups.integrations.bufferline").get()
-})
 
 -- Toggleterm
 require("toggleterm").setup {
@@ -37,68 +17,30 @@ require("toggleterm").setup {
 -- Lualine
 require('lualine').setup()
 
--- TreeSitter
-require('nvim-treesitter.configs').setup({
-    ensure_installed = { "go", "c", "lua", "cpp", "python" },
-    highlight = { enable = true },
-    indent = { enable = true },
-    incremental_selection = {
-        enable = true,
-        keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-        }
-    },
-    textobjects = {
-        select = {
-            enable = true,
-            keymaps = {
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-            }
-        }
-    }
-})
-
--- Format on save
+-- Format on save (only when an attached LSP supports formatting)
 vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*",
     callback = function()
-        vim.lsp.buf.format({ async = false })
+        if not vim.bo.modifiable then
+            return
+        end
+        vim.lsp.buf.format({
+            async = false,
+            filter = function(client, bufnr)
+                return client:supports_method("textDocument/formatting", bufnr)
+            end,
+        })
     end,
 })
--- Errors and warnings
-vim.diagnostic.config({
-    virtual_text = {
-        prefix = '●',
-        spacing = 4,
-    },
-    signs = true,
-    underline = true,
-    update_in_insert = false,
-    severity_sort = true,
-})
-
--- Mini and comment
-require('mini.pairs').setup()
-require('Comment').setup()
-
--- Telescope
-require('telescope').setup({
-    'nvim-telescope/telescope.nvim',
-    tag = 'v0.2.0',
-    dependencies = { 'nvim-lua/plenary.nvim' }
-})
-
 
 vim.diagnostic.config({
-    update_in_insert = true, -- диагностика прямо во время набора
+    update_in_insert = true,
     severity_sort = true,
     virtual_text = {
         spacing = 4,
         prefix = "●",
     },
+    signs = true,
+    underline = true,
     float = {
         border = "rounded",
     },

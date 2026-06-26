@@ -1,5 +1,5 @@
 return {
-    "rebelot/kanagawa.nvim",
-    name = "kanagawa",
-    priority = 1001,
+  "rebelot/kanagawa.nvim",
+  name = "kanagawa",
+  enabled = false,
 }

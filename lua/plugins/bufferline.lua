@@ -1,2 +1,14 @@
--- SETUP IS IN init.lua
-return {'akinsho/bufferline.nvim', options = {close_icon = "5"}, version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}
+return {
+  "akinsho/bufferline.nvim",
+  version = "*",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    { "catppuccin/nvim", name = "catppuccin" },
+  },
+  config = function()
+    require("bufferline").setup({
+      options = { close_icon = "5" },
+      highlights = require("catppuccin.special.bufferline").get_theme(),
+    })
+  end,
+}

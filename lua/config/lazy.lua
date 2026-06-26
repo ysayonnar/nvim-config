@@ -26,7 +26,6 @@ require("lazy").setup({
         -- import your plugins
         { import = "plugins" },
         { import = "colorschemes" },
-        { "rebelot/kanagawa.nvim", priority = 1000, config = true, opts = ... },
     },
     checker = {
         enabled = true,
