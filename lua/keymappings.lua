@@ -6,6 +6,7 @@ vim.keymap.set('n', '<leader>L', ':Lazy <CR>', { noremap = true, silent = false 
 
 -- Common
 vim.keymap.set('n', '<C-s>', ':wa<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>s', ':wa<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<C-q>', function()
     vim.cmd(':Neotree close')
     vim.cmd('wa')
